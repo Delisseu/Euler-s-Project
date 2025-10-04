@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 from constants import constants
 from interface.condtitons_window import ConditionsWindow
@@ -22,7 +23,15 @@ class AppInterface:
         self.conditions_window = ConditionsWindow(self.root)
         self.main_menu = MainMenu(self.root, self.conditions_window)
         self.conditions_window.main_menu_frame = self.main_menu.main_frame
+        # Настраиваем обработчик кнопки "Закрыть"
+        root.protocol("WM_DELETE_WINDOW", self.on_close)
         self.root.mainloop()
+
+    def on_close(self):
+        if messagebox.askokcancel("Выход", "Вы уверены, что хотите выйти?"):
+            process = constants.get('Active_Process')
+            process.terminate()
+            self.root.destroy()  # Закрывает окно
 
 
 if __name__ == "__main__":
