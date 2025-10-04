@@ -1,16 +1,6 @@
 import json
 import os
-import sys
 from multiprocessing import Pipe
-
-
-def resource_path(relative_path: str) -> str:
-    """Возвращает путь к ресурсу (для dev и exe)."""
-    if hasattr(sys, '_MEIPASS'):
-        base_path = sys._MEIPASS
-    else:
-        base_path = os.path.abspath(".")
-    return os.path.join(base_path, relative_path)
 
 
 class Constants:
@@ -30,13 +20,13 @@ class Constants:
                 'Waiting_time': 60,
                 'Max_result_Len': 1500,
                 'Maximum_cache_size': 100,
-                'Setting_file_name': resource_path(r"settings.json"),
-                'Cache_file_name': resource_path(r"total.json"),
-                'Path_to_setting_collage': resource_path(r"..\interface\images\setting_collage"),
-                'Path_to_cache_button': resource_path(r"..\interface\images\cache.png"),
-                'Path_to_wait_collage': resource_path(r"..\interface\images\wait_collage"),
-                'Path_to_arrow': resource_path(r"..\interface\images\arrow.png"),
-                'Path_to_arrow_inverse': resource_path(r"..\interface\images\arrow_inverse.png"),
+                'Setting_file_name': r"settings.json",
+                'Cache_file_name': r"total.json",
+                'Path_to_setting_collage': r".\interface\images\setting_collage",
+                'Path_to_cache_button': r".\interface\images\cache.png",
+                'Path_to_wait_collage': r".\interface\images\wait_collage",
+                'Path_to_arrow': r".\interface\images\arrow.png",
+                'Path_to_arrow_inverse': r".\interface\images\arrow_inverse.png",
                 'Base_font': ("Inter Light", (1920 + 1080 // 10) // 125),
                 'Round_radius': 1080 // 22,
                 'Active_Pipe': Pipe()
