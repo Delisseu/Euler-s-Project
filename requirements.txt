@@ -1,0 +1,5 @@
+pillow
+gmpy2
+numpy
+bitarray
+pandas
